@@ -170,30 +170,21 @@ p {
     color: var(--accent-color-font);
 }
 
-.header-link::after {
+.link.current {
+    color: var(--accent-color-font);
+}
+
+.current::after {
     content: "";
 
     position: absolute;
     left: 0;
     bottom: -1px;
-    opacity: 0;
-    
+
     width: 100%;
     height: 4px;
     border-radius: 2px;
     background-color: var(--accent-color-font);
-}
-
-.header-link:hover::after {
-    opacity: 1;
-
-    transition-property: color, background-color, box-shadow;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.link.current {
-    color: var(--accent-color-font);
 }
 
 .header-contact {
@@ -691,17 +682,8 @@ p {
     width: calc((100% - 60px) / 3);
     margin-right: 30px;
     margin-bottom: 30px;
-    background-color: var(--simply-white);
+    background-color: var(--simply-white);    
 }
-
-.portfolio-link {
-    transition-property: color, background-color, box-shadow;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-   
-}
-
 
 .portfolio-link:hover,
 .portfolio-link:focus {
@@ -716,23 +698,37 @@ p {
     overflow: hidden;
 }
 
-.portfolio-box::before {
-    display: inline-block;
+.portfolio-overlay {
     position: absolute;
-    content: " ";
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(33, 150, 243, 0.9);
 
     transform: translateY(100%);
     transition-property: color, background-color, box-shadow;
-    transition: transform 250ms; cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-    opacity: 1;     
+    background-color: rgba(33, 150, 243, 0.9);
+    padding: 63px 24px;
 }
 
-.portfolio-link:hover .portfolio-box::before {
-    transform: translateY(0);    
+.portfolio-link:hover .portfolio-overlay {
+    transform: translateY(0);
+}
+
+.portfolio-desc {
+    font-family: var(--main-fonts);
+    font-size: 18px;
+    line-height: 1.55;
+
+    letter-spacing: 0.03em;
+    color: var(--simply-white);
 }
 
 .portfolio-name {
@@ -743,7 +739,6 @@ p {
 }
 
 .portfolio-title {
-    /* margin-bottom: 4px; */
     font-weight: 700;
     font-size: 18px;
     line-height: 2;
@@ -759,6 +754,14 @@ p {
     color: var(--secondary-colors-font);
 }
 
+
+
+
+
+
+
+
+
 /* < !-- Modal window --> */
 .backdrop {
     position: fixed;
@@ -767,6 +770,9 @@ p {
     width: 100%;
     height: 100%;    
     background: rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
