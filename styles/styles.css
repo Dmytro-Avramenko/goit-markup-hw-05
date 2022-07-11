@@ -124,8 +124,9 @@ p {
 }
 
 .header-logo {
-    margin-right: 93px;
+    display: flex;
 
+    margin-right: 93px;
     font-family: var(--logo-fonts);
     font-size: 26px;
     line-height: 1.19;
@@ -134,7 +135,6 @@ p {
 }
 
 .header-logo-web {
-    margin-right: -7px;
     color: var(--accent-color-font);
 }
 
@@ -382,7 +382,11 @@ p {
 .doing-label-title {
     position: absolute;
     bottom: 0;
-    padding: 27px 0px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px;
     min-width: 100%;
     background: rgba(47, 48, 58, 0.8);
 
@@ -512,10 +516,9 @@ p {
 }
 
 .footer-logo {
-    display: inline-block;
+    display: flex;
     margin-bottom: 20px;
     font-family: var(--logo-fonts);
-    font-weight: 700;
     font-size: 26px;
     line-height: 1.19;
     letter-spacing: 0.03em;
@@ -572,9 +575,8 @@ p {
 }
 
 .footer-subtitle {
+    display: flex;
     margin-bottom: 20px;
-    font-weight: 700;
-    font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.03em;
     text-transform: uppercase;
